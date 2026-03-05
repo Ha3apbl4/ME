@@ -62,13 +62,33 @@
       <div class="motor_container">
         {% for motor in motors %}
         <div class="motor_card">
-          <h3>{{ motor.name_motor }}</h3>
-          <p><strong>IP Tesys:</strong> {{ motor.ip_tesys }}</p>
-          <p><strong>IP PLC:</strong> {{ motor.ip_plc }}</p>
-          <p><strong>Location:</strong> {{ motor.location }}</p>
+          <h3 class="motor_card_id">Motor {{ motor.id }}</h3>
+
+          <p class="motor_card_name">Name:{{ motor.name_motors }}</p>
+          <p class="motor_card_tesys">IP Tesys: {{ motor.ip_tesys }}</p>
+          <p class="motor_card_plc">IP PLC: {{ motor.ip_plc }}</p>
+          <p class="motor_card_location">Location:{{ motor.location }}</p>
+
+          <div class="motor_card_btn">
+            <button class="about_motor">Детальніше</button>
+            <button
+              class="delete_motor"
+              onclick="DeleteMotor('{{ motor.id }}')"
+            >
+              Видалити
+            </button>
+          </div>
         </div>
         {% endfor %}
       </div>
     </div>
+    <script>
+      async function DeleteMotor(id) {
+        await fetch(`/delete_motor/${id}`, {
+          method: "DELETE",
+        });
+        location.reload();
+      }
+    </script>
   </body>
 </html>

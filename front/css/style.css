@@ -21,7 +21,7 @@ body {
   gap: 8px;
 }
 .add_moto_btn {
-  background-color: #cbc3b6;
+  background-color: #e0e0e0;
   color: #f4f6f5;
   padding: 8px;
   border-radius: 20px;
@@ -42,6 +42,7 @@ body {
   gap: 10px;
 }
 .motor_card {
+  min-width: 220px;
   padding: 8px;
   border-radius: 20px;
   background-color: #273f65;
